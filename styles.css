@@ -1,143 +1,21 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-
-/* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-    display: block;
-}
-
-body {
-    line-height: 1;
-}
-
-ol,
-ul {
-    list-style: none;
-}
-
-blockquote,
-q {
-    quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: '';
-    content: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
 	font-family: 'Roboto';
+}
+
+@font-face {
+	font-family: Ampersand;
+	src: local('Baskerville-Italic'), local('GoudyOldStyleT-Italic'), local('Garamond-Italic'), local('Palatino-Italic');
+	unicode-range: U+26;
+}
+
+h1 {
+	font-family: Ampersand, Helvetica, sans-serif;
 }
 
 section nav h1 {
@@ -150,6 +28,7 @@ section nav h1 {
 
 section nav {
 	grid-area: nav;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
 }
 
 section nav ul {
@@ -211,10 +90,6 @@ section>nav>ul>li>a:focus {
 	text-decoration: underline;
 }
 
-main article {
-
-}
-
 main article figure {
 	font-size: 0;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
@@ -229,7 +104,23 @@ img {
     width: 100%;
 }
 
-@media (min-width: 800px) {
+body > footer{
+	background-color: blue;
+}
+
+aside {
+	grid-area: sidebar;
+}
+
+input {
+	display: block;
+}
+
+main > h1 {
+	text-align: center;
+}
+
+@media (min-width: 50rem) {
 	section {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -246,7 +137,7 @@ img {
 	}
 	main article {
 		width: 46%;
-		max-width: 25rem;
+		max-width: 20rem;
 		margin: 1rem;
 	}
 }
