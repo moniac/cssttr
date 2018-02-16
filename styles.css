@@ -24,11 +24,13 @@ section nav h1 {
 	padding: 1rem 0;
 	color: white;
 	font-size: 2rem;
+	/* grid-area: title; */
 }
 
 section nav {
-	grid-area: nav;
+	/* grid-area: nav; */
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
+	grid-column: 1/5;
 }
 
 section nav ul {
@@ -39,7 +41,8 @@ section nav ul {
 }
 
 section nav ul li {
-    padding: 1rem;
+	padding: 1rem;
+	font-size: 1rem;
 }
 
 section nav ul li:nth-of-type(2) ul {
@@ -90,6 +93,7 @@ section>nav>ul>li>a:focus {
 	text-decoration: underline;
 }
 
+
 main article figure {
 	font-size: 0;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
@@ -100,6 +104,14 @@ main article figure figcaption {
 	font-size: 1rem;
 }
 
+article figure figcaption footer {
+	margin: 1rem 0;
+}
+
+figure figcaption a {
+	display: block;
+}
+
 img {
     width: 100%;
 }
@@ -108,36 +120,124 @@ body > footer{
 	background-color: blue;
 }
 
-aside {
-	grid-area: sidebar;
-}
-
 input {
 	display: block;
 }
 
 main > h1 {
 	text-align: center;
+	margin: 2rem 0;
+	font-size: 4rem;
+}
+
+#home > h1 {
+	grid-column: 1/5;
+	text-align: center;
+	margin: 2rem 0;
+	font-size: 4rem;
+}
+
+#home > h1 span {
+	display: block;
+}
+
+ol li {
+	list-style:none;
+}
+
+#about {
+	max-width: 50rem;
+	text-align: center;
+	margin: 2rem auto;
+}
+
+#about h2 {
+	font-size: 4rem;
+	margin: 2rem 0;
 }
 
 @media (min-width: 50rem) {
 	section {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-areas:
-		'nav nav nav'
-		'content content content';
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 20px;
 	}
+
 	main {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		margin-top: 1rem;
-		grid-area: content;
+		grid-column: 1/4;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1rem;
 	}
-	main article {
-		width: 46%;
-		max-width: 20rem;
-		margin: 1rem;
+
+	aside {
+		/* grid-area: sidebar; */
+		background: green;
+	}
+
+	main > h1 {
+		display: block;
+		width: 100%;	
 	}
 }
+
+:root {
+	--transform-value: -100%;
+	--animation-duration: 1s;
+	--animation-ease: ease-in;
+}
+
+@keyframes initialAnimation-horizontal {
+    from {
+        transform: translateX(0)
+    }
+    to {
+        transform: translateX(var(--transform-value));
+    }
+}
+
+[data-animation*='first'] div:first-child, [data-animation*='first'] div:last-child {
+	position: fixed;
+	width: 50vw;
+	height: 100vh;
+
+	top: 0;
+
+	border: .25em solid #a90329;
+	background: linear-gradient(to right, #a90329 0%,#a90329 6%,#6d0019 10%,#a90329 14%,#a90329 20%,#6d0019 24%,#a90329 28%,#a90329 34%,#6d0019 38%,#a90329 42%,#a90329 48%,#6d0019 52%,#a90329 56%,#a90329 62%,#6d0019 66%,#a90329 70%,#a90329 76%,#6d0019 80%,#a90329 84%,#a90329 90%,#6d0019 94%,#a90329 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+	z-index: 123456;
+}
+
+[data-animation*='first'] div:first-child {
+    left: 0;
+
+    animation: var(--animation-duration) var(--animation-ease) var(--animation-duration) 1 forwards initialAnimation-horizontal;
+}
+[data-animation*='first'] div:last-child {
+    right: 0;
+
+    --transform-value: 100%;
+    animation: var(--animation-duration) var(--animation-ease) var(--animation-duration) 1 forwards initialAnimation-horizontal;
+}
+
+a[href='#main'] {
+	position:absolute;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+	z-index:-10;
+	opacity: 0;
+ }
+ a[href='#main']:focus,
+ a[href='#main']:active {
+	color: #fff;
+	background-color:#000;
+	top: auto;
+	width: 30%;
+	height: auto;
+	overflow:auto;
+	z-index:10;
+	opacity: 1;
+ }
