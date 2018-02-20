@@ -14,6 +14,27 @@ html {
 	unicode-range: U+26;
 }
 
+a[href='#main'] {
+	position:absolute;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+	z-index:-10;
+	opacity: 0;
+ }
+ a[href='#main']:focus,
+ a[href='#main']:active {
+	color: #fff;
+	background-color:#000;
+	top: auto;
+	width: 30%;
+	height: auto;
+	overflow:auto;
+	z-index:10;
+	opacity: 1;
+ }
+
 h1 {
 	font-family: Ampersand, Helvetica, sans-serif;
 }
@@ -104,6 +125,38 @@ main article figure figcaption {
 	font-size: 1rem;
 }
 
+main article img {
+	opacity: 0;
+	animation-name: fadeIn;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+main article:nth-child(1) > figure img {
+	animation-delay: 1.5s;
+}
+
+main article:nth-child(2) > figure img {
+	animation-delay: 2s;
+}
+
+main article:nth-child(3) > figure img {
+	animation-delay: 2.5s;
+}
+
+main article:nth-child(4) > figure img {
+	animation-delay: 3s;
+}
+
+main article:nth-child(5) > figure img {
+	animation-delay: 3.5s;
+}
+
+main article:nth-child(6) > figure img {
+	animation-delay: 4s;
+}
+
 article figure figcaption footer {
 	margin: 1rem 0;
 }
@@ -130,14 +183,14 @@ main > h1 {
 	font-size: 4rem;
 }
 
-#home > h1 {
+body > section > h1 {
 	grid-column: 1/5;
 	text-align: center;
 	margin: 2rem 0;
 	font-size: 4rem;
 }
 
-#home > h1 span {
+body > section > h1 span {
 	display: block;
 }
 
@@ -164,14 +217,43 @@ ol li {
 	}
 
 	main {
-		grid-column: 1/4;
+		grid-column: 1/5;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+		grid-gap: 2rem;
+		margin: 0 2rem;
+	}
+
+	main article {
+		transition: background-color 1000ms linear;
+	}
+
+	main article:hover {
+		background: rgba(1%, 0%, 0%, 0.1);
+	}
+
+	main > h1 {
+		display: block;
+		width: 100%;	
+	}
+}
+
+@media (min-width: 80rem) {
+	section {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 20px;
+	}
+
+	main {
+		grid-column: 1/5;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
 		grid-gap: 1rem;
+		margin: 0 2rem;
 	}
 
 	aside {
-		/* grid-area: sidebar; */
 		background: green;
 	}
 
@@ -195,6 +277,16 @@ ol li {
         transform: translateX(var(--transform-value));
     }
 }
+
+@keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	
+	to {
+	  opacity: 1;
+	}
+  }
 
 [data-animation*='first'] div:first-child, [data-animation*='first'] div:last-child {
 	position: fixed;
@@ -220,24 +312,3 @@ ol li {
     --transform-value: 100%;
     animation: var(--animation-duration) var(--animation-ease) var(--animation-duration) 1 forwards initialAnimation-horizontal;
 }
-
-a[href='#main'] {
-	position:absolute;
-	top:auto;
-	width:1px;
-	height:1px;
-	overflow:hidden;
-	z-index:-10;
-	opacity: 0;
- }
- a[href='#main']:focus,
- a[href='#main']:active {
-	color: #fff;
-	background-color:#000;
-	top: auto;
-	width: 30%;
-	height: auto;
-	overflow:auto;
-	z-index:10;
-	opacity: 1;
- }
