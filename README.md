@@ -1,3 +1,13 @@
+## Todo
+
+* Add chat component & style
+* Style progress bar
+* Fix labels
+* Add label interaction/animation
+* Remove outline main content
+* Add missing principles
+* Take another look at colors
+
 # Progress
 
 # Week 1
