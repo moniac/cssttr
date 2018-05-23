@@ -574,8 +574,136 @@ main div:last-of-type {
 	animation: d 1s infinite steps(8)
 }
 
+nav>a>button {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 999;
+	font-size: 1rem;
+	border: 0;
+	-webkit-appearance: none;
+	background-color: #0074d9;
+	width: 4rem;
+	height: 4rem;
+	margin: 1rem;
+	border-radius: 50%;
+	box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .5);
+	cursor: pointer;
+	transition: transform .15s ease-out
+}
+
+[href="#chat"]:active>button,
+[href="#chat"]:focus>button,
+[href="#chat"]:hover>button {
+	-ms-transform: scale(1.1);
+	transform: scale(1.1)
+}
+
+section:first-of-type nav section:first-of-type {
+	display: none;
+	position: fixed;
+	bottom: 5rem;
+	right: 0;
+	margin: 1rem;
+	z-index: 1;
+	background-color: hsla(0, 0%, 78%, .95);
+}
+
+section:first-of-type nav section:first-of-type footer p,
+section:first-of-type nav section:first-of-type footer time {
+	font-size: .8rem;
+	font-weight: 700
+}
+
+section:first-of-type nav section:first-of-type footer p {
+	display: inline;
+}
+
+section:first-of-type nav section:first-of-type ol li {
+	padding: 1rem 0
+}
+
+section:first-of-type nav section:first-of-type ol li>p {
+	font-size: 1.25rem;
+	margin-bottom: .25rem
+}
+
+section:first-of-type nav section:first-of-type ol li:nth-of-type(odd) {
+	text-align: left
+}
+
+section:first-of-type nav section:first-of-type ol li:nth-of-type(2n) {
+	text-align: right;
+}
+
+section:first-of-type nav section:first-of-type [href="#close"] {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	-ms-flex-line-pack: end;
+	align-content: flex-end;
+	font-size: 2rem;
+	color: #fff;
+	text-decoration: none
+}
+
+[data-status=DELIVERED] {
+	background-color: #f0e008;
+	background-color: rgba(240, 224, 8, .4)
+}
+
+[data-status=READ] {
+	background-color: #23f008;
+	background-color: rgba(35, 240, 8, .4)
+}
+
+section:first-of-type nav section:first-of-type form {
+	margin-top: 2rem;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-flow: column wrap;
+	flex-flow: column wrap
+}
+
+section:first-of-type nav section:first-of-type form label {
+	text-align: left
+}
+
+section:first-of-type nav section:first-of-type form textarea {
+	text-align: left;
+	resize: none;
+	height: 3rem;
+	font-size: 1rem
+}
+
+section:first-of-type nav section:first-of-type form button {
+	font-size: 1rem;
+	width: 4rem;
+	margin: .5rem 0;
+	padding: .25rem;
+	transition: background-color .15s ease-out
+}
+
+section:first-of-type nav section:first-of-type form button:hover {
+	background-color: #0074d9;
+	color: #fff
+}
+
+#chat:target {
+	display: block
+}
+
+#about:target {
+	outline: 5px dotted green;
+}
+
+#shop:target {
+	outline: 5px dotted green;
+}
+
 @media (min-width:50rem) {
-	section:first-of-type {
+	body>section:first-of-type {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 20px
@@ -617,7 +745,7 @@ main div:last-of-type {
 }
 
 @media (min-width:80rem) {
-	section {
+	body>section:first-of-type {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 20px
@@ -630,136 +758,4 @@ main div:last-of-type {
 		margin: 0 2rem;
 		margin: 4rem 2rem;
 	}
-}
-
-nav>a>button {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	z-index: 999;
-	font-size: 1rem;
-	border: 0;
-	-webkit-appearance: none;
-	background-color: #0074d9;
-	width: 4rem;
-	height: 4rem;
-	margin: 1rem;
-	border-radius: 50%;
-	box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .5);
-	cursor: pointer;
-	transition: transform .15s ease-out
-}
-
-[href="#chat"]:active>button,
-[href="#chat"]:focus>button,
-[href="#chat"]:hover>button {
-	-ms-transform: scale(1.1);
-	transform: scale(1.1)
-}
-
-nav section:first-of-type {
-	display: none;
-	position: fixed;
-	bottom: 5rem;
-	right: 0;
-	margin: 1rem;
-	z-index: 1;
-	background-color: hsla(0, 0%, 78%, .95);
-}
-
-nav section:first-of-type footer p,
-nav section:first-of-type footer time {
-	font-size: .8rem;
-	font-weight: 700
-}
-
-nav section:first-of-type footer p {
-	display: inline;
-}
-
-nav section:first-of-type ol li {
-	padding: 1rem 0
-}
-
-nav section:first-of-type ol li>p {
-	font-size: 1.25rem;
-	margin-bottom: .25rem
-}
-
-nav section:first-of-type ol li:nth-of-type(odd) {
-	text-align: left
-}
-
-nav section:first-of-type ol li:nth-of-type(2n) {
-	text-align: right;
-}
-
-nav section:first-of-type [href="#close"] {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-pack: end;
-	justify-content: flex-end;
-	-ms-flex-line-pack: end;
-	align-content: flex-end;
-	font-size: 2rem;
-	color: #fff;
-	text-decoration: none
-}
-
-[data-status=DELIVERED] {
-	background-color: #f0e008;
-	background-color: rgba(240, 224, 8, .4)
-}
-
-[data-status=READ] {
-	background-color: #23f008;
-	background-color: rgba(35, 240, 8, .4)
-}
-
-nav section:first-of-type form {
-	margin-top: 2rem;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: column wrap;
-	flex-flow: column wrap
-}
-
-nav section:first-of-type form label {
-	text-align: left
-}
-
-nav section:first-of-type form textarea {
-	text-align: left;
-	resize: none;
-	height: 3rem;
-	font-size: 1rem
-}
-
-nav section:first-of-type form button {
-	font-size: 1rem;
-	width: 4rem;
-	margin: .5rem 0;
-	padding: .25rem;
-	transition: background-color .15s ease-out
-}
-
-nav section:first-of-type form button:hover {
-	background-color: #0074d9;
-	color: #fff
-}
-
-#chat:target {
-	display: block
-}
-
-#about:target {
-	outline: 5px dotted green;
-}
-
-#home:target {
-	outline: 5px dotted green;
-}
-
-#shop:target {
-	outline: 5px dotted green;
 }
