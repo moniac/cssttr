@@ -31,3 +31,7 @@ I invested a lot of time into getting the Tab Skip to content working, which I a
 # Week 3
 
 In the final week, I tried to pull all the components together, to create a feeling of cohesion. As happy I am with the progress, I don't think I put in enough fancy details to make it a very pleasurable website, and will have to invest more time in the upcoming vacation.
+
+# Retry
+
+I didn't put in enough time into this project, I found it to be a bit intimidating so I kept my distance. Now I have applied all the stylings and the tips and tricks from Lea's book.
