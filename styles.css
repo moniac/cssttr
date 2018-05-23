@@ -15,8 +15,12 @@ main {
 	position: relative
 }
 
+input:invalid {
+	border-color: red;
+}
+
 input:valid {
-	border-color: green
+	border-color: green;
 }
 
 :root {
@@ -317,12 +321,14 @@ section:first-of-type nav ul li:nth-of-type(2) ul li {
 }
 
 section:first-of-type>nav>ul>li:nth-of-type(2) ul li {
-	list-style: none
+	list-style: none;
+	position: relative;
 }
 
 section:first-of-type>nav>ul>li:nth-of-type(2) ul li a {
 	color: #fff;
-	text-decoration: none
+	text-decoration: none;
+	outline: 0;
 }
 
 section:first-of-type>nav>ul>li:nth-of-type(2) ul {
@@ -340,15 +346,15 @@ section:first-of-type>nav>ul>li>a {
 	position: relative;
 	color: #fff;
 	text-decoration: none;
-	outline: 0
+	outline: 0;
 }
 
 section:first-of-type>nav>ul>li>a:hover {
 	color: #fff
 }
 
-section:first-of-type>nav>ul>li:nth-of-type(2) a:before,
-section:first-of-type>nav>ul>li>a:before {
+section:first-of-type>nav>ul>li>a:before,
+section:first-of-type>nav>ul>li:nth-of-type(2) ul li a:before {
 	content: "";
 	position: absolute;
 	width: 100%;
@@ -357,16 +363,15 @@ section:first-of-type>nav>ul>li>a:before {
 	left: 0;
 	background-color: #fff;
 	visibility: hidden;
-	-ms-transform: scaleX(0);
 	transform: scaleX(0);
 	transition: all .2s ease-in-out 0s
 }
 
-section:first-of-type>nav>ul>li:nth-of-type(2) a:hover:before,
 section:first-of-type>nav>ul>li>a:focus:before,
-section:first-of-type>nav>ul>li>a:hover:before {
+section:first-of-type>nav>ul>li>a:hover:before,
+section:first-of-type>nav>ul>li:nth-of-type(2) ul li a:hover:before,
+section:first-of-type>nav>ul>li:nth-of-type(2) ul li a:focus:before {
 	visibility: visible;
-	-ms-transform: scaleX(1);
 	transform: scaleX(1)
 }
 
@@ -580,7 +585,7 @@ main div:last-of-type {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 2rem;
-		margin: 4rem 2rem
+		margin: 4rem 2rem;
 	}
 	main article {
 		transition: background-color 1s linear
@@ -622,7 +627,8 @@ main div:last-of-type {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-gap: 2.5rem;
-		margin: 0 2rem
+		margin: 0 2rem;
+		margin: 4rem 2rem;
 	}
 }
 
@@ -651,45 +657,44 @@ nav>a>button {
 	transform: scale(1.1)
 }
 
-#chat {
+nav section:first-of-type {
 	display: none;
 	position: fixed;
 	bottom: 5rem;
 	right: 0;
 	margin: 1rem;
 	z-index: 1;
-	background-color: #c8c8c8;
-	background-color: hsla(0, 0%, 78%, .95)
+	background-color: hsla(0, 0%, 78%, .95);
 }
 
-#chat footer p,
-#chat footer time {
+nav section:first-of-type footer p,
+nav section:first-of-type footer time {
 	font-size: .8rem;
 	font-weight: 700
 }
 
-#chat footer p {
-	display: inline
+nav section:first-of-type footer p {
+	display: inline;
 }
 
-#chat ol li {
+nav section:first-of-type ol li {
 	padding: 1rem 0
 }
 
-#chat ol li>p {
+nav section:first-of-type ol li>p {
 	font-size: 1.25rem;
 	margin-bottom: .25rem
 }
 
-#chat ol li:nth-of-type(odd) {
+nav section:first-of-type ol li:nth-of-type(odd) {
 	text-align: left
 }
 
-#chat ol li:nth-of-type(2n) {
-	text-align: right
+nav section:first-of-type ol li:nth-of-type(2n) {
+	text-align: right;
 }
 
-#chat [href="#close"] {
+nav section:first-of-type [href="#close"] {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-pack: end;
@@ -711,7 +716,7 @@ nav>a>button {
 	background-color: rgba(35, 240, 8, .4)
 }
 
-#chat form {
+nav section:first-of-type form {
 	margin-top: 2rem;
 	display: -ms-flexbox;
 	display: flex;
@@ -719,18 +724,18 @@ nav>a>button {
 	flex-flow: column wrap
 }
 
-#chat form label {
+nav section:first-of-type form label {
 	text-align: left
 }
 
-#chat form textarea {
+nav section:first-of-type form textarea {
 	text-align: left;
 	resize: none;
 	height: 3rem;
 	font-size: 1rem
 }
 
-#chat form button {
+nav section:first-of-type form button {
 	font-size: 1rem;
 	width: 4rem;
 	margin: .5rem 0;
@@ -738,11 +743,23 @@ nav>a>button {
 	transition: background-color .15s ease-out
 }
 
-#chat form button:hover {
+nav section:first-of-type form button:hover {
 	background-color: #0074d9;
 	color: #fff
 }
 
 #chat:target {
 	display: block
+}
+
+#about:target {
+	outline: 5px dotted green;
+}
+
+#home:target {
+	outline: 5px dotted green;
+}
+
+#shop:target {
+	outline: 5px dotted green;
 }
